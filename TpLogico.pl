@@ -18,12 +18,12 @@ contrincante(azul, rojo).
 
 esCalvo(Persona):-persona(Persona,calvo).
 esRubio(Persona):-persona(Persona,pelo(rubio,_)).
-tieneLentes(Persona):-persona(Persona,boca(grande)),persona(Persona,nariz(chica)).
+tieneLentes(Persona):-persona(Persona,lentes(_)).
 
+tieneLentes(Persona):-persona(Persona,boca(grande)),persona(Persona,nariz(chica)).
 tieneOjosMarrones(Persona):-persona(Persona,pelo(negro,_)).
 tieneOjosMarrones(Persona):-persona(Persona,pelo(castaño,_)).
-
-
+tieneCaraRedonda(Persona):- not(persona(Persona, cara(puntuda))).
 
 
 
