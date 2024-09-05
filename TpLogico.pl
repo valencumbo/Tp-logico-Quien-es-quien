@@ -8,14 +8,13 @@ persona(samuel, nariz(chica)).
 persona(pepe, lentes(rojos)).
 persona(pepe, pelo(rubio,rulos)).
 persona(pepe, boca(chica)).
-persona(pepe, cara(redonda)).
+persona(pepe, cara(puntuda)).
 persona(pepe, ojos(marrones)).
 persona(pepe, nariz(chica)).
 carta(rojo, samuel).
 carta(azul, pepe).
 contrincante(rojo, azul).
 contrincante(azul, rojo).
-
 
 esCalvo(Persona):-persona(Persona,calvo).
 esRubio(Persona):-persona(Persona,pelo(rubio,_)).
