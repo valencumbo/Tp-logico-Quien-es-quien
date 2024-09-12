@@ -23,9 +23,10 @@ tieneLentes(Persona):-persona(Persona,lentes(_)).
 tieneLentes(Persona):-persona(Persona,lentes(_)).
 
 tieneLentes(Persona):-persona(Persona,boca(grande)),persona(Persona,nariz(chica)).
+tieneOjosMarrones(Persona):-persona(Persona,ojos(marrones)).
 tieneOjosMarrones(Persona):-persona(Persona,pelo(negro,_)).
 tieneOjosMarrones(Persona):-persona(Persona,pelo(castaño,_)).
 tieneCaraRedonda(Persona):- not(persona(Persona, cara(puntuda))).
 
-
-
+tieneBocaChica(Persona):-persona(Persona,boca(chica)).
+rubiosBocaChica(Personas):-findall(Persona,(esRubio(Persona),tieneBocaChica(Persona)),Personas).
