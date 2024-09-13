@@ -27,5 +27,23 @@ test("la persona no tiene la cara redonda",fail):-tieneCaraRedonda(samuel),tiene
 
 :-begin_tests(rubiosbocachica).
 test("todos los rubios de boca chica"):-rubiosBocaChica([pepe]).
-test("todos los que no rubios de boca chica",fail9:-rubiosBocaChica([samuel]).
+test("todos los que no rubios de boca chica",fail):-rubiosBocaChica([samuel]).
 :-end_tests(rubiosbocachica).
+
+:- begin_tests(pistas).
+test("persona cumple con las pistas", set(Persona = [samuel])) :-
+    cumple_pistas(Persona, [pelo(blanco, lacio), boca(chica)]).
+test("persona no cumple con las pistas", fail) :-
+    cumple_pistas(pepe, [pelo(blanco, lacio), boca(chica)]).
+:- end_tests(pistas).
+
+:- begin_tests(ganando).
+test("jugador rojo está perdiendo", fail) :-
+    PistasRojo = [pelo(blanco, lacio), boca(chica)],
+    PistasAzul = [pelo(rubio, rulos), boca(chica)],
+    ganando(rojo, PistasRojo, PistasAzul).
+test("jugador azul está ganando") :-
+    PistasRojo = [pelo(blanco, lacio), boca(chica)],
+    PistasAzul = [pelo(rubio, rulos), boca(chica)],
+    ganando(azul, PistasAzul, PistasRojo).
+:- end_tests(ganando).
