@@ -18,15 +18,21 @@ contrincante(azul,rojo).
 
 esCalvo(Persona):-persona(Persona,calvo).
 esRubio(Persona):-persona(Persona,pelo(rubio,_)).
-
-tieneLentes(Persona):-persona(Persona,lentes(_)).
-tieneLentes(Persona):-persona(Persona,lentes(_)).
-
-tieneLentes(Persona):-persona(Persona,boca(grande)),persona(Persona,nariz(chica)).
-tieneOjosMarrones(Persona):-persona(Persona,ojos(marrones)).
-tieneOjosMarrones(Persona):-persona(Persona,pelo(negro,_)).
-tieneOjosMarrones(Persona):-persona(Persona,pelo(castaño,_)).
-tieneCaraRedonda(Persona):- not(persona(Persona, cara(puntuda))).
+esCastanio(Persona):-persona(Persona,pelo(marron,_)).
+esMorocho(Persona):-persona(Persona,pelo(negro,_)).
 
 tieneBocaChica(Persona):-persona(Persona,boca(chica)).
+tieneBocaGrande(Persona):-persona(Persona,boca(grande)).
+
+tieneNarizChica(Persona):-persona(Persona,nariz(chica)).
+
+tieneLentes(Persona):-persona(Persona,lentes(_)).
+tieneLentes(Persona):-tieneBocaGrande(Persona), tieneNarizChica(Persona).
+
+tieneOjosMarrones(Persona):-persona(Persona,ojos(marrones)).
+tieneOjosMarrones(Persona):-esCastanio(Persona).
+tieneOjosMarrones(Persona):-esMorocho(Persona).
+
+tieneCaraRedonda(Persona):- not(persona(Persona, cara(puntuda))).
+
 rubiosBocaChica(Personas):-findall(Persona,(esRubio(Persona),tieneBocaChica(Persona)),Personas).
